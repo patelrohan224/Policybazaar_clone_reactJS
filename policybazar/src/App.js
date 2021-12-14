@@ -1,7 +1,7 @@
-import NumLogin from './components/Number Login Page/NumLogin';
+import Numbike from './components/Number Login Page/Numbike';
 function App() {
   return (
-   <NumLogin />
+   <Numbike />
   );
 }
 

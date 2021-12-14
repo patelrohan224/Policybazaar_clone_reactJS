@@ -1,0 +1,63 @@
+.container-r{ 
+    width: 100%; 
+    height: 1000px;
+    position: relative;
+    background: linear-gradient(180deg, #FFFFFF 0%, rgba(240, 246, 255, 0.8) 100%);
+}
+.bikeno-conti-r{
+    width: 70%;
+    margin:5% 15%;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+.bikeno-img-r{
+    width: 45%;
+    background: #F0F6FF;
+    /* position: absolute; */
+}
+.bikeno-img-i-r{
+    padding: 1% 15%;
+}
+.bikeno-inpt-r{
+    width: 55%;
+    padding-left: 5%;
+     /* position: absolute; */
+}
+.bikeno-head_r{
+    width: 56%;
+    padding: 0%;
+    padding-top: 8%;
+    margin:0%;
+    font-family: Merriweather;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 41px;
+    color: #253858;
+/* position: absolute;  */
+}
+.bikeno-head-info-_r{
+    padding:1% 0% 2% 0%;
+    margin:0%;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+    /* identical to box height, or 133% */
+
+
+    /* Primary/Black */
+
+    color: #253858;
+}
+.img-tray-r-img{
+    
+    height: 25px;
+}
+.img-tray-r-img2{
+    height: 10px;
+    padding-bottom: 1%;
+    padding-left: 1%;
+}
