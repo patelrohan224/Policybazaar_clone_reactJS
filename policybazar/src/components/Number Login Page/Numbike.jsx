@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {TextField,Button} from "@mui/material"
 import "./NuBike.css"
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { addbikenum } from '../../Redux/actions/NumBikeation';
 export default function Numbike(){
+    const [bikeno,setBikeno]=useState("")
+    const [fieldflag,setFieldflag]=useState(false)
+    const dispatch=useDispatch()
+    const history=useHistory()
+    const isbikeno=useSelector(state=>state.bikenumber.isbikeno)
     return(
         <div className="container-r">
             <div className="bikeno-conti-r">
@@ -30,18 +38,31 @@ export default function Numbike(){
                         </div>
                         <div className="ipntflied-r-div">
                         <TextField style={{width: '65%'}}
-                        error={false}
+                        error={fieldflag}
                         id="standard-error-helper-text"
-                        label="Enter Bike Number"
-                        placeholder='Enter Bike Number (eg. DL-1S-AB-1234)'
-                        value=""
-                        helperText={false? "Incorrect entry.":""}
+                        label={fieldflag ? "error" :"Enter Bike Number"}
+                        placeholder='Enter Bike Number (eg. DL1SAB1234)'
+                        value={bikeno}
+                        pattern="[A-Z]{2}[0-9]{1}[A-Z]{2}[0-9]{4}"
+                        onChange={(e)=>{setBikeno(e.target.value)}}
+                        helperText={fieldflag? "Incorrect entry.":""}
                         variant="outlined"
+                        required 
                         />
                         </div>
                         <div className="ipntflied-r-btn">
                             <Button style={{width: '65%'}}
-                            variant="contained">View Prices</Button>
+                            variant="contained"
+                            onClick={()=>{
+                                if(bikeno!="" && /^[A-Z]{2}[0-9]{1,2}[A-Z]{1,2}[0-9]{3,4}$/i.test(bikeno)){
+                                setFieldflag(false)
+                                dispatch(addbikenum(bikeno))
+                                history.push("/")
+                            }
+                                else{
+                                    setFieldflag(true)
+                                }
+                            }}>View Prices</Button>
                         </div>
                         <div className="img-tray2-r">
                         <img  className="img-tray2-r-img3" src="./Images/numBike/Vector.svg" alt="" />
