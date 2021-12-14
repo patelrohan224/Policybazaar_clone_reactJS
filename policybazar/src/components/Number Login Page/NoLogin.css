@@ -1,5 +1,10 @@
 .container-r{ 
     width: 100%; 
+    height: 1000px;
     position: relative;
     background: linear-gradient(180deg, #FFFFFF 0%, rgba(240, 246, 255, 0.8) 100%);
+}
+.login-conti-r{
+    width: 60%;
+    margin:20% 10% 20%;
 }
