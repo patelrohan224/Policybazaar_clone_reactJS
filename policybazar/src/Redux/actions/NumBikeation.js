@@ -1,6 +1,6 @@
-import { ADDBIKENUMBER, BIKENUMFLAG } from "../actiontypes/NumBikeActiontypes"
+import { ADDBIKEDETAILS, ADDBIKENUMBER, BIKENUMFLAG } from "../actiontypes/NumBikeActiontypes"
 
-export const numBikeflag=()=>{
+export const numBikeflagfalse=()=>{
     return{
         type:BIKENUMFLAG
     }
@@ -8,6 +8,12 @@ export const numBikeflag=()=>{
 export const addbikenum=(data)=>{
     return{
         type:ADDBIKENUMBER,
+        payload:data
+    }
+}
+export const addbikedetails=(data)=>{
+    return{
+        type:ADDBIKEDETAILS,
         payload:data
     }
 }

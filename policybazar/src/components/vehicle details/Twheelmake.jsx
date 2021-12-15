@@ -4,7 +4,7 @@ import {TextField,Button,Box} from "@mui/material"
 import "./Twheel.css"
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { addbikenum } from '../../Redux/actions/NumBikeation';
+import { addbikedetails, addbikenum } from '../../Redux/actions/NumBikeation';
 import SelectBox from "./SelectBox"
 
 const makedata=[
@@ -57,6 +57,7 @@ export default function Twheelmake(){
     const [makeflag,setMakeflag]=useState(true)
     const [modelfalg,setModelflag]=useState(false)
     const [yearflag,setYearflag]=useState(false)
+    const [errorflag,setErrorflag]=useState(false)
     const dispatch=useDispatch()
     const history=useHistory()
     const bikenum=useSelector(state=>state.vehicledetail.bikenum)
@@ -94,9 +95,9 @@ export default function Twheelmake(){
                      /> 
                      <RedBar />
                     <TextField style={{width: '92%'}}
-                     
+                       error={errorflag===""}
                         id="standard-error-helper-text"
-                        label={"Select Make"}
+                        label={errorflag=="" ?"error":"Select Make"}
                         placeholder='Select Make'
                         value={bikemake}
                         // helperText={fieldflag? "Incorrect entry.":""}
@@ -111,9 +112,9 @@ export default function Twheelmake(){
                     />
                       <RedBar /> 
                     <TextField style={{width: '92%'}}
-                       
+                        error={errorflag===""}
                         id="standard-error-helper-text"
-                        label={"Select Model/Variant"}
+                        label={errorflag==="" ?"error":"Select Model/Variant"}
                         placeholder='Select Make'
                         value={bikemodel}
                         // helperText={fieldflag? "Incorrect entry.":""}
@@ -128,9 +129,9 @@ export default function Twheelmake(){
                     />
                       <RedBar /> 
                     <TextField style={{width: '92%'}}
-                      
+                        error={errorflag===""}
                         id="standard-error-helper-text"
-                        label={"Select Ragistation Year"}
+                        label={errorflag===""?"error":"Select Ragistation Year"}
                         placeholder='Select Ragistation Year'
                         value={year}
                         // helperText={fieldflag? "Incorrect entry.":""}
@@ -146,7 +147,17 @@ export default function Twheelmake(){
                       <RedBar />
                       <div className="modelbtn-r">
                     <Button  style={{width: '92%'}}  
-                    variant="contained" >GET QOUTES</Button>
+                    variant="contained" 
+                    onClick={()=>{
+                        if(bikemake!=="" || bikemodel!=="" || year!==""){
+                            dispatch(addbikedetails({make:bikemake,model:bikemodel,year:year}))
+                            setErrorflag(false)
+                        }
+                        else
+                        {
+                                setErrorflag(true)
+                        }
+                    }}>GET QOUTES</Button>
                     </div> 
                     </div>
                 </div>
