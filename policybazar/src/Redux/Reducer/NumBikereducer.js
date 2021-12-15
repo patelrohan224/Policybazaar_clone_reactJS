@@ -1,11 +1,12 @@
-import { ADDBIKEDETAILS, ADDBIKENUMBER, BIKENUMFLAG } from "../actiontypes/NumBikeActiontypes";
+import { ADDBIKEDETAILS, ADDBIKENUMBER, ALLBIKEDETAILS, BIKENUMFLAG } from "../actiontypes/NumBikeActiontypes";
 
 const init={
     isbikeno:false,
     bikenum:"",
     bikemake:"",
     bikemodel:"",
-    bikeyear:""
+    bikeyear:"",
+    isallbikedetails:false
   };
 export const numBikeReducer=(state=init,{type,payload})=>{
     switch (type) {
@@ -14,7 +15,9 @@ export const numBikeReducer=(state=init,{type,payload})=>{
         case BIKENUMFLAG:
             return {...state,bikenum:"",isbikeno:false}
         case ADDBIKEDETAILS:
-            return {...state,bikemake:payload.make,bikemodel:payload.model,bikeyear:payload.year}
+            return {...state,bikemake:payload.make,bikemodel:payload.model,bikeyear:payload.year,isallbikedetails:true}
+        case ALLBIKEDETAILS:
+            return {...state,isallbikedetails:true}
         default:
             return {...state}
     }
