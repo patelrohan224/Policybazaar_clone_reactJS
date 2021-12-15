@@ -154,7 +154,7 @@ export default function Twheelmake(){
                             
                 <div className="bikeno-model-r">
                {makeflag ? <div className="selection-models-r">
-                           <p className="vehel-text-r">Select Two Wheeler Model</p>
+                           <p className="vehel-text-r">Select Two Wheeler Make</p>
                            <div className="items-grid-r">
                             {makedata.map((e,index)=>(
                                 <SelectBox key={index} label={e} labelvalue={setBikemake} flag={setMakeflag} nflag={setModelflag} />
