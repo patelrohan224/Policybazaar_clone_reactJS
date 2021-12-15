@@ -69,7 +69,6 @@ export default function Twheelmake(){
     const history=useHistory()
     const bikenum=useSelector(state=>state.vehicledetail.bikenum)
 
-
     function RedBar() {
         return (
           <Box
@@ -103,36 +102,54 @@ export default function Twheelmake(){
                      /> 
                      <RedBar />
                     <TextField style={{width: '92%'}}
-                        error={makeflag}
+                     
                         id="standard-error-helper-text"
-                        label={makeflag ? "error" :"Select Make"}
+                        label={"Select Make"}
                         placeholder='Select Make'
                         value={bikemake}
                         // helperText={fieldflag? "Incorrect entry.":""}
                         variant="outlined"
                         // required 
+                        onClick={()=>{
+
+                            setMakeflag(true);
+                            setModelflag(false);
+                            setYearflag(false);
+                        }}
                     />
                       <RedBar /> 
                     <TextField style={{width: '92%'}}
-                        error={modelfalg}
+                       
                         id="standard-error-helper-text"
-                        label={modelfalg ? "error" :"Select Model/Variant"}
+                        label={"Select Model/Variant"}
                         placeholder='Select Make'
                         value={bikemodel}
                         // helperText={fieldflag? "Incorrect entry.":""}
                         variant="outlined"
                         // required 
+                        onClick={()=>{
+
+                            setMakeflag(false);
+                            setModelflag(true);
+                            setYearflag(false);
+                        }}
                     />
                       <RedBar /> 
                     <TextField style={{width: '92%'}}
-                        error={yearflag}
+                      
                         id="standard-error-helper-text"
-                        label={yearflag ? "error" :"Select Ragistation Year"}
+                        label={"Select Ragistation Year"}
                         placeholder='Select Ragistation Year'
                         value={year}
                         // helperText={fieldflag? "Incorrect entry.":""}
                         variant="outlined"
                         // required 
+                        onClick={()=>{
+
+                            setMakeflag(false);
+                            setModelflag(false);
+                            setYearflag(true);
+                        }}
                     />
                       <RedBar />
                       <div className="modelbtn-r">
@@ -142,30 +159,33 @@ export default function Twheelmake(){
                     </div>
                 </div>
                 
+                            
                 <div className="bikeno-model-r">
                {makeflag ? <div className="selection-models-r">
                            <p className="vehel-text-r">Select two wheeler model</p>
                            <div className="items-grid-r">
                             {makedata.map((e,index)=>(
-                                <SelectBox key={index} label={e} labelvalue={setBikemake} />
+                                <SelectBox key={index} label={e} labelvalue={setBikemake} flag={setMakeflag} nflag={setModelflag} />
                             ))}
                            </div>
                        </div> : modelfalg ? <div className="selection-models-r">
                            <p className="vehel-text-r">Select two wheeler model</p>
                            <div className="items-grid-r">
                             {modeldata.map((e,index)=>(
-                                <SelectBox key={index} label={e} labelvalue={setBikemodel} />
+                                <SelectBox key={index} label={e} labelvalue={setBikemodel}  flag={setModelflag}/>
                             ))}
                            </div> 
-                        </div>: yearflag ? <div className="selection-models-r">
+                        </div> : yearflag ? <div className="selection-models-r">
                            <p className="vehel-text-r">Select two wheeler model</p>
                            <div className="items-grid-r">
                             {yeardata.map((e,index)=>(
-                                <SelectBox key={index} label={e} labelvalue={setYear} />
+                                <SelectBox key={index} label={e} labelvalue={setYear} flag={setMakeflag,
+                                    setModelflag,
+                                    setYearflag} />
                             ))}
                            </div> 
-                       </div> : <div></div>}
-
+                       </div> : ""}
+            </div>
             </div>
             <div  className="p_div_descriotop_r">
                 <p className="description_nu-r">
