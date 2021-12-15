@@ -9,20 +9,62 @@ import SelectBox from "./SelectBox"
 
 const makedata=[
     "HONDA",
-    "HONDA",
+    "BAJAJ",
+    "HERO HONDA",
+    "TVS",
+    "YAMAHA",
+    "HERO",
     "SUZUKI",
-    "SUZUKI",
-    "SUZUKI",
-    "SUZUKI",
-    "SUZUKI",
-    "SUZUKI"
+    "ROYAL ENFIELD"
+    ,"MAHINDRA",
+    "KTM",
+    "LML",
+    "HARLEY DAVIDSON"
+]
+const yeardata=[
+    "2021",
+    "2020",
+    "2019",
+    "2018",
+    "2017",
+    "2016",
+    "2015",
+    "2014"
+    ,"2013",
+    "2012",
+    "2011",
+    "2010",
+    "2009",
+    "2008",
+    "2007"
+    ,"2006"
+]
+const modeldata=[
+    "ACTIVA",
+    "CB SHINE",
+    "CB UNICORN",
+    "AVATOR",
+    "DIO",
+    "DREAM YUGA",
+    "SHINE",
+    "UNICRON"
+    ,"CB TWISTER",
+    "ACTIVA-L",
+    "CB 350 RS",
+    "CRF 1000L",
+    "HNESS",
+    "HORNET 2.0",
+    "SP"
+    ,"X-BLADE"
 ]
 
 export default function Twheelmake(){
     const [bikemake,setBikemake]=useState("")
     const [bikemodel,setBikemodel]=useState("")
+    const [year,setYear]=useState("")
     const [makeflag,setMakeflag]=useState(false)
     const [modelfalg,setModelflag]=useState(false)
+    const [yearflag,setYearflag]=useState(false)
     const dispatch=useDispatch()
     const history=useHistory()
     const bikenum=useSelector(state=>state.vehicledetail.bikenum)
@@ -83,11 +125,11 @@ export default function Twheelmake(){
                     />
                       <RedBar /> 
                     <TextField style={{width: '92%'}}
-                        error={modelfalg}
+                        error={yearflag}
                         id="standard-error-helper-text"
-                        label={modelfalg ? "error" :"Select Model/Variant"}
-                        placeholder='Select Make'
-                        value={bikemodel}
+                        label={yearflag ? "error" :"Select Ragistation Year"}
+                        placeholder='Select Ragistation Year'
+                        value={year}
                         // helperText={fieldflag? "Incorrect entry.":""}
                         variant="outlined"
                         // required 
@@ -101,15 +143,29 @@ export default function Twheelmake(){
                 </div>
                 
                 <div className="bikeno-model-r">
-                       <div className="selection-models-r">
+               {makeflag ? <div className="selection-models-r">
                            <p className="vehel-text-r">Select two wheeler model</p>
                            <div className="items-grid-r">
                             {makedata.map((e,index)=>(
-                                <SelectBox key={index} label={e} labelvalue={bikemodel} />
+                                <SelectBox key={index} label={e} labelvalue={setBikemake} />
                             ))}
                            </div>
-                       </div>
-                </div>
+                       </div> : modelfalg ? <div className="selection-models-r">
+                           <p className="vehel-text-r">Select two wheeler model</p>
+                           <div className="items-grid-r">
+                            {modeldata.map((e,index)=>(
+                                <SelectBox key={index} label={e} labelvalue={setBikemodel} />
+                            ))}
+                           </div> 
+                        </div>: yearflag ? <div className="selection-models-r">
+                           <p className="vehel-text-r">Select two wheeler model</p>
+                           <div className="items-grid-r">
+                            {yeardata.map((e,index)=>(
+                                <SelectBox key={index} label={e} labelvalue={setYear} />
+                            ))}
+                           </div> 
+                       </div> : <div></div>}
+
             </div>
             <div  className="p_div_descriotop_r">
                 <p className="description_nu-r">
