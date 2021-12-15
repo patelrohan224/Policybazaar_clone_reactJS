@@ -34,10 +34,6 @@ const yeardata=[
     "2012",
     "2011",
     "2010",
-    "2009",
-    "2008",
-    "2007"
-    ,"2006"
 ]
 const modeldata=[
     "ACTIVA",
@@ -52,17 +48,13 @@ const modeldata=[
     "ACTIVA-L",
     "CB 350 RS",
     "CRF 1000L",
-    "HNESS",
-    "HORNET 2.0",
-    "SP"
-    ,"X-BLADE"
 ]
 
 export default function Twheelmake(){
     const [bikemake,setBikemake]=useState("")
     const [bikemodel,setBikemodel]=useState("")
     const [year,setYear]=useState("")
-    const [makeflag,setMakeflag]=useState(false)
+    const [makeflag,setMakeflag]=useState(true)
     const [modelfalg,setModelflag]=useState(false)
     const [yearflag,setYearflag]=useState(false)
     const dispatch=useDispatch()
@@ -162,26 +154,24 @@ export default function Twheelmake(){
                             
                 <div className="bikeno-model-r">
                {makeflag ? <div className="selection-models-r">
-                           <p className="vehel-text-r">Select two wheeler model</p>
+                           <p className="vehel-text-r">Select Two Wheeler Model</p>
                            <div className="items-grid-r">
                             {makedata.map((e,index)=>(
                                 <SelectBox key={index} label={e} labelvalue={setBikemake} flag={setMakeflag} nflag={setModelflag} />
                             ))}
                            </div>
                        </div> : modelfalg ? <div className="selection-models-r">
-                           <p className="vehel-text-r">Select two wheeler model</p>
+                           <p className="vehel-text-r">Select Two Wheeler Variant</p>
                            <div className="items-grid-r">
                             {modeldata.map((e,index)=>(
-                                <SelectBox key={index} label={e} labelvalue={setBikemodel}  flag={setModelflag}/>
+                                <SelectBox key={index} label={e} labelvalue={setBikemodel}  flag={setModelflag} nflag={setYearflag}/>
                             ))}
                            </div> 
                         </div> : yearflag ? <div className="selection-models-r">
-                           <p className="vehel-text-r">Select two wheeler model</p>
+                           <p className="vehel-text-r">Select Registration Year</p>
                            <div className="items-grid-r">
                             {yeardata.map((e,index)=>(
-                                <SelectBox key={index} label={e} labelvalue={setYear} flag={setMakeflag,
-                                    setModelflag,
-                                    setYearflag} />
+                                <SelectBox key={index} label={e} labelvalue={setYear} flag={setMakeflag}  />
                             ))}
                            </div> 
                        </div> : ""}
