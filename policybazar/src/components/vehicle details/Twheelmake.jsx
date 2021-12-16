@@ -21,7 +21,8 @@ const makedata=[
     ,"MAHINDRA",
     "KTM",
     "LML",
-    "HARLEY DAVIDSON"
+    "HARLEY DAVIDSON",
+
 ]
 const yeardata=[
     "2021",
@@ -36,6 +37,7 @@ const yeardata=[
     "2012",
     "2011",
     "2010",
+    "2009","2008","2007","2006"
 ]
 const modeldata=[
     "ACTIVA",
@@ -50,6 +52,8 @@ const modeldata=[
     "ACTIVA-L",
     "CB 350 RS",
     "CRF 1000L",
+    "HNESS","HORNET 2.0",
+        "SP", "X-BLADE"
 ]
 
 export default function Twheelmake(){
@@ -79,7 +83,7 @@ export default function Twheelmake(){
       }
     return(
         <div className="container-r">
-            <div className="bikeno-conti-r">
+            <div className="bikeno-conti-d-r">
                 <div className="bikeno-img-r">
                     <img className="bikeno-img-i-r" src="./Images/numBike/Logo (1).svg" alt="" />
                     {/* <img className="bikeno-img-aki-r" src="./Images/numBike/image 2.svg" alt="" /> */}          
@@ -88,7 +92,8 @@ export default function Twheelmake(){
                         Your Vehicle Details
                         </h4>
                   
-                    <TextField  style={{width: '92%'}}
+                   <div className="padding-left-inpt-r">
+                   <TextField  style={{width: '92%'}}
                         id="standard-error-helper-text"
                         label="Bike Number"
                         value={bikenum}
@@ -161,6 +166,7 @@ export default function Twheelmake(){
                                 setErrorflag(true)
                         }
                     }}>GET QOUTES</Button>
+                   </div>
                     </div> 
                     </div>
                 </div>
