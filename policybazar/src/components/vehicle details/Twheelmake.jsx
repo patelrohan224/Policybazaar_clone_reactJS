@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { addbikedetails, addbikenum } from '../../Redux/actions/NumBikeation';
 import SelectBox from "./SelectBox"
+import Selectrender from './Selectrender';
 
 const makedata=[
     "HONDA",
@@ -168,15 +169,11 @@ export default function Twheelmake(){
                 <div className="bikeno-model-r">
                {makeflag ? <div className="selection-models-r">
                            <p className="vehel-text-r">Select Two Wheeler Make</p>
-                           <Autocomplete
-                            disablePortal
-                            id="combo-box-demo"
-                            options={makedata}
-                            sx={{ width: "100%" }}
-                            renderInput={(params) => <TextField {...params} 
-                            onSelect={(e)=>{setBikemake(e.target.value)}}
-                            value={bikemake}
-                              label="Select Make" />}
+                           <Selectrender
+                            data={makedata}
+                            setflag={setBikemake}
+                            label={"Select Make"}
+                            flag={setMakeflag} nflag={setModelflag}
                             />
                            <div className="items-grid-r">
                             {makedata.map((e,index)=>(
@@ -185,14 +182,11 @@ export default function Twheelmake(){
                            </div>
                        </div> : modelfalg ? <div className="selection-models-r">
                            <p className="vehel-text-r">Select Two Wheeler Variant</p>
-                           <Autocomplete
-                            disablePortal
-                            id="combo-box-demo"
-                            options={modeldata}
-                            sx={{ width: "100%" }}
-                            renderInput={(params) => <TextField {...params} 
-                            onSelect={(e)=>{setBikemodel(e.target.value)}}
-                              label="Select Model/Variant" />}
+                           <Selectrender
+                            data={modeldata}
+                            setflag={setBikemodel}
+                            label={"Select Model/Variant"}
+                            flag={setModelflag} nflag={setYearflag}
                             />
                            <div className="items-grid-r">
                             {modeldata.map((e,index)=>(
@@ -201,15 +195,11 @@ export default function Twheelmake(){
                            </div> 
                         </div> : yearflag ? <div className="selection-models-r">
                            <p className="vehel-text-r">Select Registration Year</p>
-                           <Autocomplete
-                            disablePortal
-                            id="combo-box-demo"
-                            options={yeardata}
-                            sx={{ width: "100%" }}
-                            renderInput={(params) => <TextField {...params} 
-                            
-                            onSelect={(e)=>{setYear(e.target.value)}}
-                              label="Select Ragistation Year" />}
+                            <Selectrender
+                            data={yeardata}
+                            setflag={setYear}
+                            flag={setMakeflag}
+                            label={"Select Ragistation Year"}
                             />
                            <div className="items-grid-r">
                             {yeardata.map((e,index)=>(

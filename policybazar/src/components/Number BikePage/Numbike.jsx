@@ -47,7 +47,7 @@ export default function Numbike(){
                         placeholder='Enter Bike Number (eg. DL1SAB1234)'
                         value={bikeno}
                         pattern="[A-Z]{2}[0-9]{1}[A-Z]{2}[0-9]{4}"
-                        onChange={(e)=>{setBikeno(e.target.value)}}
+                        onChange={(e)=>{setBikeno(e.target.value.toUpperCase())}}
                         helperText={fieldflag? "Incorrect entry.":""}
                         variant="outlined"
                         required 
