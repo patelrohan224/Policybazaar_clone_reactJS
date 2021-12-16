@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import {TextField,Button,Box} from "@mui/material"
+import Autocomplete from '@mui/material/Autocomplete';
 import "./Twheel.css"
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
@@ -95,9 +96,9 @@ export default function Twheelmake(){
                      /> 
                      <RedBar />
                     <TextField style={{width: '92%'}}
-                       error={errorflag===""}
+                    //    error={errorflag===""}
                         id="standard-error-helper-text"
-                        label={errorflag==="" ?"error":"Select Make"}
+                        label={"Select Make"}
                         placeholder='Select Make'
                         value={bikemake}
                         // helperText={fieldflag? "Incorrect entry.":""}
@@ -112,9 +113,9 @@ export default function Twheelmake(){
                     />
                       <RedBar /> 
                     <TextField style={{width: '92%'}}
-                        error={errorflag===""}
+                        // error={errorflag===""}
                         id="standard-error-helper-text"
-                        label={errorflag==="" ?"error":"Select Model/Variant"}
+                        label={"Select Model/Variant"}
                         placeholder='Select Make'
                         value={bikemodel}
                         // helperText={fieldflag? "Incorrect entry.":""}
@@ -129,12 +130,12 @@ export default function Twheelmake(){
                     />
                       <RedBar /> 
                     <TextField style={{width: '92%'}}
-                        error={errorflag===""}
+                        // error={errorflag===""}
                         id="standard-error-helper-text"
-                        label={errorflag===""?"error":"Select Ragistation Year"}
+                        label={"Select Ragistation Year"}
                         placeholder='Select Ragistation Year'
                         value={year}
-                        // helperText={fieldflag? "Incorrect entry.":""}
+                        helperText={errorflag? "Incorrect entry.":""}
                         variant="outlined"
                         // required 
                         onClick={()=>{
@@ -147,9 +148,10 @@ export default function Twheelmake(){
                       <RedBar />
                       <div className="modelbtn-r">
                     <Button  style={{width: '92%'}}  
+                    // disabled={bikemake=="" || bikemodel=="" || year==""}
                     variant="contained" 
                     onClick={()=>{
-                        if(bikemake!=="" || bikemodel!=="" || year!==""){
+                        if(bikemake!=="" && bikemodel!=="" && year!==""){
                             dispatch(addbikedetails({make:bikemake,model:bikemodel,year:year}))
                             setErrorflag(false)
                         }
@@ -166,6 +168,17 @@ export default function Twheelmake(){
                 <div className="bikeno-model-r">
                {makeflag ? <div className="selection-models-r">
                            <p className="vehel-text-r">Select Two Wheeler Make</p>
+                           <Autocomplete
+                            disablePortal
+                            id="combo-box-demo"
+                            options={makedata}
+                            sx={{ width: "100%" }}
+                            renderInput={(params) => <TextField {...params} 
+                            onChange={()=>{setBikemake(params.inputProps.value)}}
+                            onClick={()=>{setBikemake(params.inputProps.value)}}
+                            ={()=>{setBikemake(params.inputProps.value)}}
+                              label="Select Make" />}
+                            />
                            <div className="items-grid-r">
                             {makedata.map((e,index)=>(
                                 <SelectBox key={index} label={e} labelvalue={setBikemake} flag={setMakeflag} nflag={setModelflag} />

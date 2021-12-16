@@ -80,6 +80,7 @@
     color: #253858;
 }
 .items-grid-r{
+    margin-top:5%;
     display: grid;
     grid-template-columns: 48% 48%;
     grid-gap: 3%;
@@ -96,5 +97,19 @@
     background: #FFFFFF;
     /* Homecard */
     box-shadow: 0px 1px 4px 2px rgba(2, 63, 159, 0.2);
+    border-radius: 4px;
+}
+.selectBox-r:hover{
+    display: flex;
+    width: 100%;
+    height: 30px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding:4% 0%;
+    margin:2% 0%;
+    background: #FFFFFF;
+    /* Homecard */
+    box-shadow: 0px 1px 12px 2px rgba(2, 63, 159, 0.2);
     border-radius: 4px;
 }

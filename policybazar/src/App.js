@@ -6,7 +6,7 @@ import Bikenotodetails from './Routes/Bike no to Bike details/BikeNotoDetails';
 function App() {
   return (
     <>
-    {/* <Bikenotodetails /> */}
+    <Bikenotodetails />
     <Switch>
     <Route path="/bikeno" exact>
     <Numbike />
@@ -15,7 +15,7 @@ function App() {
    <Twheelmake />
    </Route>
   </Switch>
-  <PolicySteps />
+  {/* <PolicySteps /> */}
   </>
   );
 }
