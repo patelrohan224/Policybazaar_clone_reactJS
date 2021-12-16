@@ -174,9 +174,8 @@ export default function Twheelmake(){
                             options={makedata}
                             sx={{ width: "100%" }}
                             renderInput={(params) => <TextField {...params} 
-                            onChange={()=>{setBikemake(params.inputProps.value)}}
-                            onClick={()=>{setBikemake(params.inputProps.value)}}
-                            ={()=>{setBikemake(params.inputProps.value)}}
+                            onSelect={(e)=>{setBikemake(e.target.value)}}
+                            value={bikemake}
                               label="Select Make" />}
                             />
                            <div className="items-grid-r">
@@ -186,6 +185,15 @@ export default function Twheelmake(){
                            </div>
                        </div> : modelfalg ? <div className="selection-models-r">
                            <p className="vehel-text-r">Select Two Wheeler Variant</p>
+                           <Autocomplete
+                            disablePortal
+                            id="combo-box-demo"
+                            options={modeldata}
+                            sx={{ width: "100%" }}
+                            renderInput={(params) => <TextField {...params} 
+                            onSelect={(e)=>{setBikemodel(e.target.value)}}
+                              label="Select Model/Variant" />}
+                            />
                            <div className="items-grid-r">
                             {modeldata.map((e,index)=>(
                                 <SelectBox key={index} label={e} labelvalue={setBikemodel}  flag={setModelflag} nflag={setYearflag}/>
@@ -193,6 +201,16 @@ export default function Twheelmake(){
                            </div> 
                         </div> : yearflag ? <div className="selection-models-r">
                            <p className="vehel-text-r">Select Registration Year</p>
+                           <Autocomplete
+                            disablePortal
+                            id="combo-box-demo"
+                            options={yeardata}
+                            sx={{ width: "100%" }}
+                            renderInput={(params) => <TextField {...params} 
+                            
+                            onSelect={(e)=>{setYear(e.target.value)}}
+                              label="Select Ragistation Year" />}
+                            />
                            <div className="items-grid-r">
                             {yeardata.map((e,index)=>(
                                 <SelectBox key={index} label={e} labelvalue={setYear} flag={setMakeflag}  />

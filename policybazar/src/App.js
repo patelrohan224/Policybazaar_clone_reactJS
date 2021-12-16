@@ -15,7 +15,7 @@ function App() {
    <Twheelmake />
    </Route>
   </Switch>
-  {/* <PolicySteps /> */}
+  <PolicySteps />
   </>
   );
 }
