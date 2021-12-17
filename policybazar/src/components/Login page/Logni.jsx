@@ -12,6 +12,7 @@ export default function Login(){
     const [authflagotp,otpauthflagotp]=useState(false)
     return (
         <div className="login-cont-r">
+              <img className="login-cross-i-r" src="./Images/numBike/progess/coolicon.svg" alt="" />
             <div className="login-img-div">
               <img className="login-img-i-r" src="./Images/numBike/progess/image 1.svg" alt="" />
             </div>
@@ -72,7 +73,7 @@ export default function Login(){
             </div>
             }
             <div className="login-btn1-r">
-            {otpvalid ? <Button  style={{width: '100%'}}                    
+            {otpvalid ?<div><Button   style={{width: '100%',marginTop:"3%", maxHeight: '42px',minHeight:"42px"}}                   
                     variant="contained" 
                     onClick={()=>{
                         if(number.length===12){
@@ -84,15 +85,23 @@ export default function Login(){
                             setOtpflag(false);
                         }, [2000]);
                     }
-
-                    }}>Sign In with OTP</Button>:
-                    <Button  style={{width: '100%'}}                    
+                    }}>Sign In with OTP</Button>
+                    <Button  style={{width: '100%',marginTop:"3%", maxHeight: '42px',minHeight:"42px"}}                    
+                    variant="outlined" 
+                    >Sign In with Password</Button>
+                    </div>:
+                    <div>
+                    <Button  style={{width: '100%',marginTop:"3%", maxHeight: '42px',minHeight:"42px"}}        
                     variant="contained" 
                     onClick={()=>{
                       if(otp==tempotp){
                             console.log("logined");
                       }
-                    }}>Sign In</Button>}
+                    }}>Sign In</Button>
+                    <Button  style={{width: '100%',marginTop:"3%", maxHeight: '42px',minHeight:"42px"}}                    
+                    variant="outlined" 
+                    >Sign In with Password</Button>
+                    </div>}
             </div>
            </div>
             </div>
