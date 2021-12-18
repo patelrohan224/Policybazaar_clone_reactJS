@@ -5,7 +5,9 @@ import piggy from "../../images/piggy.png"
 import Dil from "../../images/dil.png"
 import "./Home.css"
 import "../Navbar/navbar.css"
+import { useHistory } from "react-router-dom"
 export const HoverDiv =()=>{
+  let history =useHistory()
     return(
         <>
         <div>
@@ -41,7 +43,10 @@ export const HoverDiv =()=>{
                   <img src={car1} alt="one"/><b style={{marginLeft:"1%",position:"absolute",fontSize:"16px"}}>Car Insurance</b>
                   <div style={{marginRight:"0%"}}>
                   <p className="footer-hov">Motor Insurance</p>
-                  <p className="footer-hov">Two Wheeler Insurance</p>
+                  <p className="footer-hov" onClick={() =>{
+                    history.push("/bikeno")
+                  }
+                  }>Two Wheeler Insurance</p>
                   <p className="footer-hov">Commercial Insurance</p>
                   <p className="footer-hov">Taxi Insurance</p>
                   <p className="footer-hov">Third Party Insurance</p>

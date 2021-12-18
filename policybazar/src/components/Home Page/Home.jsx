@@ -58,6 +58,7 @@ import k0 from "../../images/k0.png"
 import invest1 from "../../images/invest1.png"
 import invest2 from "../../images/invest2.png"
 import { Footer } from "./Footer"
+import { useHistory } from "react-router-dom"
 const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
     padding: theme.spacing(1),
@@ -66,6 +67,7 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export const Home = () => {
+    let history=useHistory()
     return (
         <>
             <Navbar />
@@ -103,7 +105,10 @@ export const Home = () => {
                     </div>
                     <div className="home-tol">
                         <img src={bk} alt="one" />
-                        <p className="home-tm" >2 Wheeler Insurance </p>
+                        <p className="home-tm" onClick={() =>{
+                    history.push("/bikeno")
+                  }
+                  }>2 Wheeler Insurance </p>
                         <p className="home-tm1-5" style={{ marginTop: "2%" }}> <spam className="home-dot"> </spam>Instant Policy</p>
                     </div>
                     <div className="home-tol">

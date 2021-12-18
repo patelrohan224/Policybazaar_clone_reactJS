@@ -60,7 +60,7 @@ export default function Numbike(){
                                 if(bikeno!="" && /^[A-Z]{2}[0-9]{1,2}[A-Z]{1,2}[0-9]{3,4}$/i.test(bikeno)){
                                 setFieldflag(false)
                                 dispatch(addbikenum(bikeno))
-                                history.push("/")
+
                             }
                                 else{
                                     setFieldflag(true)
