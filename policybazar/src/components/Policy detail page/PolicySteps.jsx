@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import "./policySteps.css"
+import { useHistory } from 'react-router-dom';
 export default function PolicySteps(){
     const [polifcyflag,setpolicyflag]=useState(true)
+    let history=useHistory()
     return(
-      <>
+      <div className="backg-img-r">
       {polifcyflag ? <div className="policy-container-r">
         <div className="policy-div-text-r">
                 <p className="policy-txt-r">
@@ -20,16 +22,24 @@ export default function PolicySteps(){
             Has your current policy expired?
                 </p>
                
-                    <div className="ipnt-policy-r">
+                    <div onClick={()=>{
+                        setpolicyflag(false)
+                    }}  className="ipnt-policy-r">
                     Not Expired
                     </div>
-                    <div className="ipnt-policy-r">
+                    <div onClick={()=>{
+                        setpolicyflag(false)
+                    }} className="ipnt-policy-r">
                     Expired Within 90 Days
                     </div>
-                    <div className="ipnt-policy-r">
+                    <div onClick={()=>{
+                        setpolicyflag(false)
+                    }} className="ipnt-policy-r">
                     Expired More Than 90 Days
                     </div>
-                    <div className="ipnt-policy-r">
+                    <div onClick={()=>{
+                        setpolicyflag(false)
+                    }} className="ipnt-policy-r">
                     I don’t remember
                     </div>
                     <p className="policy-btm-d-r">
@@ -52,17 +62,23 @@ export default function PolicySteps(){
             Which cover did you have on your expiring policy?
                 </p>
                
-                    <div className="ipnt-policy-r">
+                    <div onClick={()=>{
+                        history.push("/planlayout")
+                    }} className="ipnt-policy-r">
                     Standard / Comprehensive
                     </div>
-                    <div className="ipnt-policy-r">
+                    <div onClick={()=>{
+                        history.push("/planlayout")
+                    }} className="ipnt-policy-r">
                     Third Party Liability Only
                     </div>
-                    <div className="ipnt-policy-r">
+                    <div onClick={()=>{
+                        history.push("/planlayout")
+                    }} className="ipnt-policy-r">
                     I don’t remember
                     </div>
             </div> 
         </div>}
-        </>
+        </div>
     )
 }

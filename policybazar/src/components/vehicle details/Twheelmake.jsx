@@ -163,12 +163,13 @@ export default function Twheelmake(){
                       <RedBar />
                       <div className="modelbtn-r">
                     <Button  style={{width: '92%'}}  
-                    // disabled={bikemake=="" || bikemodel=="" || year==""}
+                    disabled={bikemake=="" || bikemodel=="" || year=="" || !/^(.*\s+.*)+$/i.test(bikemodel)}
                     variant="contained" 
                     onClick={()=>{
                         if(bikemake!=="" && bikemodel!=="" && year!=="" &&  /^(.*\s+.*)+$/i.test(bikemodel)){
                             dispatch(addbikedetails({make:bikemake,model:bikemodel,year:year}))
                             setErrorflag(false)
+                            history.push("/policystep")
                         }
                         else
                         {
