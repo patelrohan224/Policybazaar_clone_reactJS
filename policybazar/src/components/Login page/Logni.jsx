@@ -103,7 +103,12 @@ export default function Login(){
                     >Sign In with Password</Button>
                     </div>}
             </div>
+            <div className="desc-login-r">
+                <p className="desc-1p-r">First time user?</p>
+                <p className="desc-2p-r">Sign Up</p>
+            </div>
            </div>
+
             </div>
         </div>
     )
