@@ -89,14 +89,9 @@
     font-weight: normal;
     font-size: 10px;
     line-height: 12px;
-    /* or 120% */
-
     display: flex;
     align-items: center;
     text-align: center;
-
-    /* Neutral/Gray 60 */
-
     color: rgba(0, 0, 0, 0.6);
 }
 .backg-img-r{
