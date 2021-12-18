@@ -96,9 +96,6 @@ export default function Login(){
                     onClick={()=>{
                       if(otp==tempotp){
                             console.log("logined");
-                            otpauthflagotp(false)
-                      }else{
-                        otpauthflagotp(true)
                       }
                     }}>Sign In</Button>
                     <Button  style={{width: '100%',marginTop:"3%", maxHeight: '42px',minHeight:"42px"}}                    

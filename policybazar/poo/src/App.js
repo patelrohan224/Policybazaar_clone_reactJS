@@ -12,7 +12,7 @@ import { Home } from './components/Home Page/Home';
 function App() {
   return (
     <>
-  {/* <Switch>
+  <Switch>
   <Route path="/" exact>
   <Home />
   </Route>
@@ -43,8 +43,7 @@ function App() {
     
       <PropLayout3/>
       </Route>
-  </Switch> */}<Login/>
-
+  </Switch>
   </>
   );
 }
