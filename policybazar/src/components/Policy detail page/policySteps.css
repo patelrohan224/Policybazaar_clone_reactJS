@@ -3,6 +3,7 @@
     margin: 8% 38% 0%;
     background: #FFFFFF;
     border-radius: 11px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
 }
 .policy-txt-r{
     width: 90%;
@@ -99,8 +100,9 @@
     color: rgba(0, 0, 0, 0.6);
 }
 .backg-img-r{
-    /* background-image: url("https://patelrohan224.github.io/rohanpatel/Screenshot (1383).png"); */
-    /* background-repeat: no-repeat; */
-    background-color: rgba(155, 193, 253, 1);
-    padding:1% 0% 20%;
+    width: 100%;
+    height: auto;
+    padding-bottom: 240px;
+    position: relative;
+    background: linear-gradient(180deg, #FFFFFF 0%, rgba(240, 246, 255, 0.8) 100%);
 }
